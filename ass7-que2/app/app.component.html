@@ -1,0 +1,48 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<html style="background: rgb(199, 193, 194)">
+<div style="text-align:center">
+  
+  <h1>Travelling Portal</h1>
+    <div>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Name" [(ngModel)]="myname" value="">
+      <mat-hint>Please enter your name</mat-hint>
+    </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <mat-select placeholder="Select City" [(ngModel)]="cityName">
+          <mat-option *ngFor="let city of cities" [value]="city">
+            {{city}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      </div>
+
+      <div>
+        <mat-form-field>
+          <input matInput [matDatepicker]="picker" placeholder="Choose a start date" [(ngModel)]="Sdate">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
+        </mat-form-field>
+      </div>
+
+      <div>
+        <mat-form-field>
+          <input matInput [matDatepicker]="picker1" placeholder="Choose a end date" [(ngModel)]="Edate">
+          <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+          <mat-datepicker #picker1 startView="year" [startAt]="EndDate"></mat-datepicker>
+        </mat-form-field>
+      </div>
+
+      <div>
+        <button mat-raised-button>Submit</button>
+      </div>
+
+  </div> 
+  <h2>{{"Name of the Customer is : "+myname}}</h2> 
+  <h2>{{"Name of the City is : "+cityName}}</h2> 
+   <h2>{{"start date is : "+Sdate}}</h2> 
+   <h2>{{"End date is : " +Edate}}</h2> 
+
+  </html>

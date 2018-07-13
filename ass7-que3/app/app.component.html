@@ -1,0 +1,54 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div *ngIf="!cnumber; else details1" style="text-align:center">
+  <h1 style="color: blue">Car Details</h1>
+  <form [formGroup]="MyGroup" (ngSubmit)="display(MyGroup.value)" class="example-form">
+  
+    <div>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Car Name" value="" formControlName="cname">
+    </mat-form-field>
+    </div>
+
+    <div>
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Car Type" value="" formControlName="ctype">
+         
+        </mat-form-field>
+        </div>
+        <div>
+        <mat-form-field>
+            <mat-select placeholder="Select Car Color"  name="data" formControlName="ccolor">
+              <mat-option *ngFor="let data of cars" [value]="data">
+                {{data}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          </div>
+
+          <div>
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="Car Number" value="" formControlName="cnumber">
+               
+              </mat-form-field>
+              </div>
+
+              <div>
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="No of Seats" value="" formControlName="cnoseats">
+                   
+                  </mat-form-field>
+                  </div>
+                  <div>
+                    <button mat-raised-button [disabled]="!MyGroup.valid"	>Submit</button>
+                  </div>
+    </form>
+ </div>
+<ng-template #details1>
+  <h1>Car Details</h1>
+  <h2>{{"Car name :"+cname}}</h2>
+  <h2>{{"Car type:"+ctype}}</h2>
+  <h2>{{"Car color :"+ccolor}}</h2>
+  <h2>{{"Car Number :"+cnumber}}</h2>
+  <h2>{{"Car no of seats  :"+cnoseats}}</h2>
+
+</ng-template>

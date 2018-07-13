@@ -1,0 +1,29 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div *ngIf="!name else display1" style="text-align:center;background: antiquewhite;size: 500px">
+<h1>Login Form </h1>
+    <form [formGroup]='myForm' (ngSubmit)="dis(myForm.value)" class="example-form">
+        <div>
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Name" value="" formControlName="name">
+          <mat-hint>Please enter your name</mat-hint>
+        </mat-form-field>
+        </div>
+        
+        <div>
+            <mat-form-field class="example-full-width">
+              <input matInput type="password" placeholder="password" value="" formControlName="password">
+              <mat-hint>Please enter your password</mat-hint>
+            </mat-form-field>
+            </div><br><br>
+            <div>
+            <button mat-raised-button>Submit</button>    
+              </div>
+      </form>
+    
+ </div>
+ <ng-template #display1>
+    <h2>Login Info</h2>
+    <h2>{{"Username "+name}}</h2>
+    <h2>{{"Password "+password}}</h2>
+    
+    </ng-template>  
